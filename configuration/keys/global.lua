@@ -74,15 +74,15 @@ end, {
     group = 'screenshots (clipboard)'
 }),
 --Essentials tools
-awful.key({modkey}, 'z', function() awful.util.spawn("nautilus") end,
+awful.key({modkey}, 'z', function() awful.util.spawn("dolphin") end,
           {description = 'open file manager', group = 'launcher'}),
 awful.key({modkey}, 'c', function() awful.util.spawn("code") end,
           {description = 'open a text/code editor', group = 'launcher'}),
-awful.key({modkey}, 'b', function() awful.util.spawn("google-chrome") end,
+awful.key({modkey}, 'b', function() awful.util.spawn("google-chrome-stable") end,
           {description = 'open a browser', group = 'launcher'}),
 awful.key({modkey}, 'y', function() awful.util.spawn("spotify") end,
           {description = 'open spotify', group = 'launcher'}),
-awful.key({modkey}, 'n', function() awful.util.spawn("/snap/bin/zalo-unofficial-2020") end,
+awful.key({modkey}, 'k', function() awful.util.spawn("/snap/bin/zalo-unofficial-2020") end,
           {description = 'open zalo', group = 'launcher'}),
 -- Standard program
 awful.key({modkey}, 't',
