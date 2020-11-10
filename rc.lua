@@ -71,7 +71,7 @@ end)
 autorun = true
 autorunApps =
 {
-   "compton",
+   "compton --no-fading-openclose",
    "mailspring",
 }
 if autorun then

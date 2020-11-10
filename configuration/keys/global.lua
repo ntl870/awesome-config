@@ -84,6 +84,8 @@ awful.key({modkey}, 'y', function() awful.util.spawn("spotify") end,
           {description = 'open spotify', group = 'launcher'}),
 awful.key({modkey}, 'k', function() awful.util.spawn("/snap/bin/zalo-unofficial-2020") end,
           {description = 'open zalo', group = 'launcher'}),
+awful.key({modkey}, 'k', function() awful.util.spawn("discord") end,
+          {description = 'open zalo', group = 'launcher'}),
 -- Standard program
 awful.key({modkey}, 't',
           function() awful.util.spawn_with_shell("konsole") end,

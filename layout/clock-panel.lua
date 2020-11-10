@@ -5,8 +5,7 @@ local dpi = require('beautiful').xresources.apply_dpi
 
 -- Clock / Calendar 24h format
 local textclock = wibox.widget.textclock(
-                      '<span font="Roboto Mono bold 9">%H:%M</span>')
-
+                      '<span font="Roboto Mono bold 9">%a %d:%M %p</span>')
 local clock_widget = wibox.container.margin(textclock, dpi(8), dpi(8), dpi(8),
                                             dpi(8))
 
@@ -17,8 +16,8 @@ local ClockPanel = function(s, offset)
         ontop = false,
         screen = s,
         height = dpi(32),
-        width = dpi(48),
-        x = s.geometry.width - dpi(184),
+        width = dpi(108),
+        x = s.geometry.width - dpi(255),
         y = s.geometry.y + offsety,
         stretch = false,
         bg = beautiful.primary.hue_900,
