@@ -18,11 +18,24 @@ theme.accent = mat_colors.orange
 -- Background
 theme.background = mat_colors.grey
 
+local u = 0 -- don't delete
+
+local function random(x, y)
+    u = u + 1
+    if x ~= nil and y ~= nil then
+        return math.floor(x +(math.random(math.randomseed(os.time()+u))*999999 %y))
+    else
+        return math.floor((math.random(math.randomseed(os.time()+u))*100))
+    end
+end
+
+
 local awesome_overrides = function(theme)
     theme.dir = os.getenv('HOME') .. '/.config/awesome/theme'
-
+    rand = random(1,15)
     theme.icons = theme.dir .. '/icons/'
-    theme.wallpaper = theme.dir .. '/wallpapers/1.png'
+    theme.wallpaper = theme.dir .. '/wallpapers/' .. tostring(rand) .. '.png'
+    --theme.wallpaper = theme.dir .. '/wallpapers/12.png'
     -- theme.wallpaper = '#e0e0e0'
     theme.font = 'Roboto medium 10'
     theme.title_font = 'Roboto medium 14'

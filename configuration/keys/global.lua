@@ -74,7 +74,7 @@ end, {
     group = 'screenshots (clipboard)'
 }),
 --Essentials tools
-awful.key({modkey}, 'z', function() awful.util.spawn("dolphin") end,
+awful.key({modkey}, 'z', function() awful.util.spawn("thunar") end,
           {description = 'open file manager', group = 'launcher'}),
 awful.key({modkey}, 'c', function() awful.util.spawn("code") end,
           {description = 'open a text/code editor', group = 'launcher'}),
