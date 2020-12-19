@@ -32,7 +32,7 @@ end
 
 local awesome_overrides = function(theme)
     theme.dir = os.getenv('HOME') .. '/.config/awesome/theme'
-    rand = random(1,15)
+    rand = random(1,17)
     theme.icons = theme.dir .. '/icons/'
     theme.wallpaper = theme.dir .. '/wallpapers/' .. tostring(rand) .. '.png'
     --theme.wallpaper = theme.dir .. '/wallpapers/12.png'
