@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -8,7 +15,7 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -30,7 +37,7 @@ HYPHEN_INSENSITIVE="true"
 # DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+# export UPDATE_ZSH_DAYS=13         
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -99,3 +106,83 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source /home/ntl2000/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+# R=$(($RANDOM%3))
+# case $R in
+#     0)
+# 		cowsay "Type some awesome commands !" | lolcat
+# 		;;
+# 	1)
+# 		cowsay "How you're going ?" | lolcat
+# 		;;
+# 	2)
+# 		cowsay "Oh hi there" | lolcat
+# 		;;
+# 	3)
+# 		cowsay "You're back !!" | lolcat
+# 		;;
+# esac
+
+shell=$(basename $SHELL)
+kernel="$(uname -r | cut -d '-' -f1)"
+wmname="$(xprop -id $(xprop -root -notype | awk '$1=="_NET_SUPPORTING_WM_CHECK:"{print $5}') -notype -f _NET_WM_NAME 8t | grep "WM_NAME" | cut -f2 -d \")"
+
+
+#                __.......__
+#             .-:::::::::::::-.
+#           .:::''':::::::''':::.
+#         .:::'     ':::'     ':::.
+#    .'\  ::'        ':'        '::  /'.
+#   :   \ ::                     :: /   :
+#  :     \':    ___       ___    :'/     :
+# :       /\    ( •)\   /( •)    /\       :
+# :      / .\    ‾‾  | |  ‾‾    /. \      :
+# :      \ (         (_)         ) /      :
+#  :      '_(                   )_'      :
+#   '.       \    < _____ >    /       .'
+#     '.      \     \   /     /      .'
+#       '._    '-._       _.-'    _.'
+#        .''-.__ .''-._.-''. __.-''.
+#      .'       '.         .'       '.
+#    .'           '-.   .-'           '.
+
+a=$'[1;34m'        # PURPLE
+r=$'[1;31m'        # RED
+w=$'[1;39m'        # WHITE
+g=$'[1;35m'        # MAGENTA
+t=$'[01;49;32m'    # GREEN
+m=$'[m'            # NORMAL
+tput clear
+cat << EOF
+  $a               __.......__
+              .-:::::::::::::-.
+            .:::''':::::::''':::.
+          .:::'     ':::'     ':::.$m
+     $g.'\  $a::'$m        $a':'$m        $a'::$g  /'.$m
+    $g:   \ $a::$m                     $a::$g /   :$m
+   $g:     \'$a:$m    ___       ___    $a:$g'/     :
+  :$w       /\    ( •)\   /$w( •)$w    /\       $g:
+  :$w      / .\    ‾‾  | |  ‾‾    /. \      $g:
+  :$w      \ (         (_)         ) /      $g:
+   :$w      '_(                   )_'      $g:
+    '.$w       \    < _____ >    /       $g.'
+      '.$w      \     $r\   /$g     $w/      $g.'
+        '._$w    '-._       _.-'   $g _.'
+  $t       .''-.__$w .''-._.-''.$t __.-''.
+       .'       '.         .'       '.
+     .'           '-.   .-'           '. $m
+                                  
+EOF
+
+
+# fonts : https://github.com/xero/figlet-fonts
+
+alias afetch= '/bin/bash /home/ntl870/afetch/afetch'
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+typeset -g POWERLEVEL9K_MODE="nerdfont-complete"
+typeset -g POWERLEVEL9K_VCS_UNSTAGED_ICON="\uf059"
+typeset -g POWERLEVEL9K_VCS_UNTRACKED_ICON="\uf059"
+
