@@ -9,7 +9,7 @@ percentage.align = 'center'
 percentage.valign = 'center'
 
 function update_volume()
-    awful.spawn.easy_async("amixer -D pulse sget Master", function(stdout)
+    awful.spawn.easy_async("amixer -D pulse get Master", function(stdout)
         local mute = string.match(stdout, '%[(o%D%D?)%]')
         local volume = string.match(stdout, '(%d?%d?%d)%%')
         percentage.text = volume
